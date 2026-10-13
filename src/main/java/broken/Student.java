@@ -2,6 +2,9 @@ package broken;
 
 import module java.base;
 
+//
+// Complete encapsulation, rules of integrity
+//   enforced completely
 // How to make student construction friendlier
 // How to make Student immutable?
 // How to construct pooled immutable students?
