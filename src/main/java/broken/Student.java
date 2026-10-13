@@ -5,7 +5,14 @@ import module java.base;
 //
 // Complete encapsulation, rules of integrity
 //   enforced completely
+//   - how many "attacks" can you come up with?
 // How to make student construction friendlier
+//   Create factory, easy way for initialization of
+//   courses list
+// (not really appropriate for this class but:
+//   create Builder
+//   allow for building multiple students with
+//   almost identical initializations)
 // How to make Student immutable?
 // How to construct pooled immutable students?
 //
