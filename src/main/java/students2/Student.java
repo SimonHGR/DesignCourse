@@ -1,4 +1,4 @@
-package students;
+package students2;
 
 import module java.base;
 

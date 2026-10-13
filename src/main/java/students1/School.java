@@ -1,4 +1,4 @@
-package students;
+package students1;
 
 import module java.base;
 
@@ -60,7 +60,7 @@ public class School {
     return res;
   }
 
-  public static List<Student> getListByCriterion(List<Student> ls, Criterion crit) {
+  public static List<Student> getListByCriterion(Iterable<Student> ls, Criterion crit) {
     ArrayList<Student> res = new ArrayList<>();
     for (Student s : ls) {
       if (crit.test(s)) {
