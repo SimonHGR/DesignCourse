@@ -46,8 +46,9 @@ public class School {
     return res;
   }
 
+  private static double smartnessThreshold = 3;
   public static List<Student> getSmartList(List<Student> ls) {
-    return getSmartList(ls, 3);
+    return getSmartList(ls, smartnessThreshold);
   }
 
   public static List<Student> getEnthusiasticList(List<Student> ls, int threshold) {
