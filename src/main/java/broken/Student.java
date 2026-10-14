@@ -74,6 +74,15 @@ public final class Student {
     this.gpa = gpa;
   }
 
+  public Student withGpa(double gpa) {
+    // validate first!!!
+    // Following DEPENDS ON TRULY IMMUTABLE STUDENT
+    // and as such cannot actually be safe in this
+    // surrounding example!
+    return new Student(this.name, gpa, this.courses);
+    //            can safely reuse this  ^^^^^^
+  }
+
   public static List<String> validate(String name, double gpa, Collection<String> courses) {
     List<String> problems = new ArrayList<>();
     if (name == null) problems.add("Need a name");
