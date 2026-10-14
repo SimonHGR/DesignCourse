@@ -34,7 +34,8 @@ public class School {
 
     Predicate<Student> enthusiasticPred = s -> s.getCourses().size() > 3;
     Predicate<Student> smartPred = s -> s.getGpa() >= 3;
-    Predicate<Student> notSmartPred = s -> s.getGpa() < 3;
+//    Predicate<Student> notSmartPred = s -> s.getGpa() < 3;
+    Predicate<Student> notSmartPred = smartPred.negate();
 //    Predicate<Student> enthusiasticButNotSmart = s -> s.getCourses().size() > 3 && s.getGpa() < 3;
 //    Predicate<Student> enthusiasticButNotSmart = new Combiner<>(
 //        enthusiasticPred,
@@ -44,7 +45,14 @@ public class School {
 //        .filter(enthusiasticPred)
 //        .filter(notSmartPred)
 //        .filter(enthusiasticButNotSmart)
-        .filter(Combiner.and(enthusiasticPred, notSmartPred))
+        .filter(enthusiasticPred.and(notSmartPred))
+        .map(s -> "Dear " + s.name + "Congratulations you're not smart but take "
+            + s.getCourses().size() + " courses!")
+        .forEach(IO::println);
+    System.out.println("--------------------------------");
+
+    sis.filter(enthusiasticPred)
+        .flatMap(s -> new SuperIterable<>(s.getCourses()))
         .forEach(IO::println);
   }
 }
