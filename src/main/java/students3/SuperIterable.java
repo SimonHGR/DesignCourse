@@ -17,7 +17,7 @@ public class SuperIterable<E> implements Iterable<E> {
 //    }
 //  }
 
-  public SuperIterable<E> filter(SuperIterable<E> this, Predicate<E> crit) {
+  public SuperIterable<E> filter(/*SuperIterable<E> this, */Predicate<E> crit) {
     ArrayList<E> res = new ArrayList<>();
     for (E s : self) {
       if (crit.test(s)) {
