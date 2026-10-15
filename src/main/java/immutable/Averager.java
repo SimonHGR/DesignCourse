@@ -34,8 +34,12 @@ public class Averager {
   public static void main() {
     long start = System.nanoTime();
     ThreadLocalRandom.current().doubles(DATA_SIZE)
+//        .parallel()
         .boxed()
-        .reduce(new Average(), Average::include, Average::merge)
+//        .reduce(new Average(), Average::include, Average::merge)
+        .reduce(new Average(),
+            (a, v) -> a.include(v),
+            (a1, a2) -> a1.merge(a2))
         .get()
         .ifPresentOrElse(a -> IO.println("Mean is: " + a),
             () -> IO.println("no data in stream"));
